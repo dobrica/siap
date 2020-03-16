@@ -122,14 +122,20 @@ def parse_global_rankings():
     print("implement")
 
 def parse_tables(response):
-    # TODO: implement
-    # all tables on the page
-    tbl = response.xpath('//table/tbody') 
-    rows = tbl.xpath('tr/th/text()') 
-    rows += tbl.xpath('tr/td/text()')
-    for x in rows:
-        print(x.extract())
-    # TODO: GET and PRINT One By One
+    tables = []
+    for tbl in response.xpath('//table/child::*'):
+        table = []
+        for tr in tbl.xpath('tr'):
+            row = []
+            for cell in tr.xpath('child::*/descendant::text()'):
+                tcell = cell.extract().strip().replace('\xa0', elements.empty_str)
+                if tcell != '' and tcell != ' ' and tcell != '\n' and tcell != '\xa0':
+                    row.append(tcell)
+            table.append(row)
+        
+        if len(table) > 1: # ignore tables that have only one row
+            tables.append(table)
+    return tables            
 
 # write parsed fc data by appending
 def write_fc_to_csv(fc):
