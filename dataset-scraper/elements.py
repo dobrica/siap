@@ -1,6 +1,9 @@
 # links and titles
-#TODO: find more data
-fifa_2020_qualifications_url = 'https://en.wikipedia.org/wiki/2020_FIFA_Futsal_World_Cup_qualification_(UEFA)' # TODO: add more qualifications?
+uefa_2022_qualifications_url = 'https://en.wikipedia.org/wiki/UEFA_Futsal_Euro_2022_qualifying'
+fifa_2020_qualifications_url = 'https://en.wikipedia.org/wiki/2020_FIFA_Futsal_World_Cup_qualification_(UEFA)'
+fifa_2016_qualifications_url = 'https://en.wikipedia.org/wiki/2016_FIFA_Futsal_World_Cup_qualification_(UEFA)'
+fifa_2012_qualifications_url = 'https://en.wikipedia.org/wiki/2012_FIFA_Futsal_World_Cup_qualification_(UEFA)'
+fifa_2008_qualifications_url = 'https://en.wikipedia.org/wiki/2008_FIFA_Futsal_World_Cup_qualification_(UEFA)'
 is_fifa_title = 'FIFA_Futsal_World'
 fifa_futsal_wc_url = 'https://en.wikipedia.org/wiki/FIFA_Futsal_World_Cup'
 is_uefa_title = 'UEFA_Futsal'
