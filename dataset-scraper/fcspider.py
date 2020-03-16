@@ -8,7 +8,10 @@ filename = basepath + 'wiki_data.csv'
 
 class FCSpider(scrapy.Spider):
     name = 'fcspider'
-    start_urls = [E.fifa_2020_qualifications_url, E.fifa_futsal_wc_url, E.uefa_futsal_url, E.afc_futsal_url,
+    #TODO: follow data and fix issues
+    #TODO: 1. add more rules, 2. implement better handling if some info is missing
+    start_urls = [E.uefa_2022_qualifications_url, E.fifa_futsal_wc_url, E.uefa_futsal_url, E.afc_futsal_url,
+        E.fifa_2020_qualifications_url, E.fifa_2016_qualifications_url, E.fifa_2012_qualifications_url, E.fifa_2008_qualifications_url,
         E.concacaf_futsal_url, E.copa_america_futsal_url, E.ofc_futsal_url ] #TODO: fix:, E.africa_futsal_url]
 
     allFCs = []
@@ -80,7 +83,6 @@ def parse_footballbox(response):
     return fc    
 
 def parse_match_results(fc, fscore, response):
-    #TODO: exclude to be played ?
     if fc.getYear() != 2012 and fc.getYear() != 2016:
         fscore = response.xpath(E.score_extras)
 
