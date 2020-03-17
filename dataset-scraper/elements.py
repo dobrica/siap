@@ -10,7 +10,7 @@ is_uefa_title = 'UEFA_Futsal'
 uefa_futsal_url = 'https://en.wikipedia.org/wiki/UEFA_Futsal_Championship'
 is_afc_title = 'AFC_Futsal_Championship'
 afc_futsal_url = 'https://en.wikipedia.org/wiki/AFC_Futsal_Championship'
-is_african_title = 'Africa' #TODO: before 2016 different results parsing
+is_african_title = 'Africa'
 africa_futsal_url = 'https://en.wikipedia.org/wiki/Africa_Futsal_Cup_of_Nations'
 is_concacaf_title = 'CONCACAF_Futsal_Championship'
 concacaf_futsal_url = 'https://en.wikipedia.org/wiki/CONCACAF_Futsal_Championship'
@@ -19,12 +19,19 @@ copa_america_futsal_url = 'https://en.wikipedia.org/wiki/Copa_América_de_Futsal
 is_ofc_title = 'Futsal' # Oceanian or OFC
 ofc_futsal_url = 'https://en.wikipedia.org/wiki/OFC_Futsal_Championship'
 
-
 # frequent elements and constants
 new_line = '\n'
 comma = ','
 empty_str = ''
 pen_time = 'Penalties'
+TEAM = 'Team'  
+PTS = 'Pts'
+PLD = 'Pld'
+DIFF = 'Diff'
+POS = 'Pos'
+PLACE = 'Place'
+RANK = 'Rank'
+TDETAILS = 'Tournament details'
 
 # xpath and css selectors
 next_page_link = '//i/a/@href'
@@ -42,3 +49,11 @@ home_fb = '//*[@class="footballbox"]/table/tbody/tr/th[@class="fhome"]/span/a/te
 score_reg = 'tr/th[@class="fscore"]/text()'
 score_pen = 'tr[@class="fgoals"]/th/descendant::text()[last()]' 
 away_fb = '//*[@class="footballbox"]/table/tbody/tr/th[@class="faway"]/span/a/text()'
+table_nodes = '//table/child::*'
+table_rows = 'tr'
+subnode_text = 'child::*/descendant::text()'
+vevent = '//*[@class="vevent"]/table/tbody/tr'
+vev_date = 'td[1]/span[1]/text()'
+vev_home = 'td[2]/b/span/a/descendant::text()'
+vev_score = 'td[3]/span[1]/b/text()'
+vev_away = 'td[4]/b/span/a/descendant::text()'

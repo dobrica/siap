@@ -11,6 +11,9 @@ class FutsalCup():
     __score = []
     __away = []
 
+    __fcFinalRanking = []
+    __groupResults = []
+
     def setTitle(self, title):
         self.__title = title
     
@@ -82,3 +85,15 @@ class FutsalCup():
 
     def getNumberOfGroups(self):
         return self.__numberOfGroups
+
+    def setFCFinalRanking(self, fcFinalRanking):
+        self.__fcFinalRanking = fcFinalRanking
+
+    def getFCFinalRanking(self):
+        return self.__fcFinalRanking
+
+    def setGroupResults(self, groupResults):
+        self.__groupResults = groupResults
+
+    def getGroupResults(self):
+        return self.__groupResults
