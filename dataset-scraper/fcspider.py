@@ -5,7 +5,7 @@ from futsalcup import FutsalCup
 
 basepath = 'results/'
 fileformat = '.csv'
-prefix = 'test'
+prefix = 'uefa'
 games_df = basepath + prefix + '_games' + fileformat
 ranking_df = basepath + prefix + '_ranking' + fileformat
 groups_df = basepath + prefix + '_groups' + fileformat
@@ -13,10 +13,12 @@ groups_df = basepath + prefix + '_groups' + fileformat
 
 class FCSpider(scrapy.Spider):
     name = 'fcspider'
-    start_urls = [E.uefa_2022_qualifications_url, E.fifa_futsal_wc_url, E.uefa_futsal_url, E.afc_futsal_url,
-                  E.fifa_2020_qualifications_url, E.fifa_2016_qualifications_url, E.fifa_2012_qualifications_url, E.fifa_2008_qualifications_url,
-                  E.concacaf_futsal_url, E.copa_america_futsal_url, E.ofc_futsal_url]  # TODO: fix:, E.africa_futsal_url] #before 2016 different results parsing
+    # start_urls = [E.uefa_2022_qualifications_url, E.fifa_futsal_wc_url, E.uefa_futsal_url, E.afc_futsal_url,
+    #               E.fifa_2020_qualifications_url, E.fifa_2016_qualifications_url, E.fifa_2012_qualifications_url, E.fifa_2008_qualifications_url,
+    #               E.concacaf_futsal_url, E.copa_america_futsal_url, E.ofc_futsal_url]  # TODO: fix:, E.africa_futsal_url] #before 2016 different results parsing
     
+    start_urls = [E.uefa_futsal_url]
+
     allFCs = []
 
     # delete previous files
@@ -68,7 +70,7 @@ def parse_footballbox(response, tables):
     ftime = response.xpath(E.time).extract()
 
     # *_extras important for 2000, 2004, 2008, but for 2012 and 2016 picks up additional incorrect info
-    if fc.getYear() != 2005 and fc.getYear() != 2010 and fc.getYear() != 2014 and fc.getYear() != 2012 and fc.getYear() != 2016:
+    if fc.getYear() != 2005 and fc.getYear() != 2010 and fc.getYear() != 2014 and fc.getYear() != 2012 and fc.getYear() != 2016 and fc.getYear() != 2018:
         fhome = response.xpath(E.home_extras).extract()
         faway = response.xpath(E.away_extras).extract()
     # deafult football box elements
